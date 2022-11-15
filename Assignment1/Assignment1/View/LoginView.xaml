@@ -1,0 +1,81 @@
+﻿<Window x:Class="Assignment1.View.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment1.ViewModel"
+        mc:Ignorable="d"
+    Title="LoginView" Height="317" Width="301" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:LoginViewModel/>
+    </Window.DataContext>
+    <Grid  >
+        <TextBlock Margin="0,0,0,0" Text="Login" TextDecorations="Underline"  HorizontalAlignment="Center" FontSize="30" Foreground="purple" FontWeight="Bold"/>
+        <StackPanel Margin="30,60,30,0">
+            <TextBlock Text="UserName :"  FontWeight="DemiBold" HorizontalAlignment="Center"  Foreground="Black" FontSize="20"/>
+            <!--   <TextBox Margin="3"  Name="username" FontSize="15" BorderBrush="Black" Text="{Binding username, UpdateSourceTrigger=PropertyChanged}" Height="21" Width="200" TextAlignment="Center"/>-->
+            <TextBox Margin="3"  Name="username"   FontSize="15" BorderBrush="Black"  Height="21" Width="200" TextAlignment="Center" Text="{Binding username, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Margin="30,110,30,0">
+            <TextBlock Text="Password :" FontWeight="DemiBold" HorizontalAlignment="Center"  Foreground="Black" FontSize="20"/>
+            <!--  <TextBox Margin="3" Name="password" FontSize="15" BorderBrush="Black" Text="{Binding password, UpdateSourceTrigger=PropertyChanged}" Height="21" Width="200" TextAlignment="Center"/>-->
+            <TextBox Margin="3" Name="password"  TextAlignment="Center" FontSize="15" BorderBrush="Black" Height="21" Width="200" Text="{Binding password, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+        </StackPanel>
+        <Button Content="Login"  BorderThickness="1" BorderBrush="AliceBlue" FontSize="17" Height="30" HorizontalAlignment="Left" Margin="89,175,0,0" Name="Details" VerticalAlignment="Top" Width="100"  Command="{Binding cmdlogin}"/>
+        <Button Content="Forget Password" BorderBrush="AliceBlue" FontSize="13" Height="30" Background="AliceBlue"  HorizontalAlignment="Center" Margin="3,210,3,0" VerticalAlignment="Top" Width="100" >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock TextDecorations="Underline">  
+                    <ContentPresenter />
+                    </TextBlock>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Navy" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBlock Margin="30,235,10,0" Text="Don't have account?" HorizontalAlignment="Left" FontSize="15" Foreground="purple" />
+        <Button Content="Register Now" BorderBrush="AliceBlue" FontSize="13" Height="30" Background="AliceBlue"  HorizontalAlignment="Center" Margin="170,235,10,0" VerticalAlignment="Top" Width="100" Click="Button_Click"  >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock TextDecorations="Underline">  
+                    <ContentPresenter />
+                    </TextBlock>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Navy" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBlock Height="23" HorizontalAlignment="Left" Name ="errormessage" VerticalAlignment="Top" Width="247" Margin="30,45,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C"  />
+
+
+    </Grid>
+</Window>
+
